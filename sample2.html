@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8"/>
+	</head>
+	<body>
+		<ul>
+		<script type="text/javascript">
+
+			/*
+			var array = ["a", "b", "c"];
+			array.push("d");
+			array = array.concat(["1", "2"]);
+			array.shift();
+			array.pop();
+			array.unshift("z");
+			array.sort();
+			array.reverse();
+			array.splice(1,2,"3","4");
+
+			for (var i = 0; i < array.length; i++) {
+				document.write(array[i] + "<br />");	
+			}
+			*/
+
+			var grades = {};
+			grades['name'] = 'leeduyoung';
+			grades['math'] = 100;
+			grades['science'] = 97;
+
+			var grades2 = new Object();
+			grades2['name'] = 'leeduyoung';
+			grades2['math'] = 90;
+			grades2['science'] = 80;
+
+
+			// for(var key in grades2){
+			// 	document.write("key : " + key + ", value : " +grades2[key] + "<br />");	
+			// }
+
+			// document.write(grades.name);
+			// document.write(grades2.science);
+
+			var grades3 = {
+				'list' : {'egoing':10, 'leeche':20, 'leedu':100},
+				// 'show' : function(){
+				// 	document.write('hello javascript' + "<br />");
+				// }
+				'show' : function(){
+					for(var name in this.list){
+						document.write(name, this.list[name]);
+					}
+				}
+			};
+			//grades3['show']();
+			grades3.show();
+			
+			
+		</script>
+	</ul>
+	</body>
+</html>

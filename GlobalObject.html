@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chatset = 'utf8'>
+	<title>전역객체 예제</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function func(){
+			document.write("hello" + "<br/>");
+		}
+		func(); //window라는 전역객체가 숨겨져 있다.
+		window.func(); 
+	</script>
+</body>
+</html>

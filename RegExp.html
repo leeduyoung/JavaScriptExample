@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = 'utf-8'>
+	<title>정규표현식 예제</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//정규 표현식 리터럴
+		var pattern = /a/;
+
+		//정규표현식 객체 생성자
+		var pattern2 = new RegExp('b');
+
+		document.write(pattern.exec("abcdefg")); //a
+		document.write("<br/>");
+		document.write(pattern.exec("bcdefg"));  //null
+		document.write("<br/>");
+
+		//원하는 정보의 존재유무 확인
+		document.write(pattern.test("abcde")); //true
+		document.write("<br/>");
+		document.write(pattern.test("bcd")); //false
+		document.write("<br/>");
+
+		//원하는 값 출력 
+		document.write("abc".match(pattern)); //a
+		document.write("<br/>");
+		document.write("bcd".match(pattern)); //null
+		document.write("<br/>");
+
+		//치환
+		document.write("abcde".replace(pattern, "Z"));
+		document.write("<br/>");
+
+		//정규표현식 패턴을 만들때 옵션 설정 (조합 가능)
+		//i를 붙이면 대소문자 구분하지 않는다. 
+		//g를 붙이면 검색된 모든 결과를 리턴한다.
+		var xi = /d/;
+		document.write("LeeDu".match(xi));
+		document.write("<br/>");
+
+		var oi = /d/i;
+		document.write("LeeDu".match(oi));
+		document.write("<br/>");
+
+		var xg = /e/;
+		document.write("LeeDu".match(xg));
+		document.write("<br/>");
+
+		var og = /e/g;
+		document.write("LeeDu".match(og));
+		document.write("<br/>");
+
+		var ogi = /e/ig;
+		document.write("LeEDu".match(ogi));
+		document.write("<br/>");	
+
+		//캡쳐
+		var pattern3 = /(\w+)\s(\w+)/;
+		var str = "coding everybody go";
+		var result = str.replace(pattern3, "$2 $1");
+		document.write(result);
+		document.write("<br/>");
+
+
+	</script>
+</body>	
+</html>

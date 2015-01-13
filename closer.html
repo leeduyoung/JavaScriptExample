@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = 'utf-8'>
+	<title>클로저 예제</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		/*
+		//함수 안에서 또다른 함수를 선언할 수 있다.
+		function outter(){ //외부함수
+			function inner(){ //내부함수
+				var title = "coding everybody";
+				document.write(title);
+			}
+			inner();
+		}
+		outter();
+		*/
+
+		/*
+		function outter(){
+			var title = "coding everybody";
+			return function(){
+				document.write(title);
+			}
+		}
+		var inner = outter();
+		inner();
+		*/
+
+		/*
+		function factory_movie(title){
+			return {
+				get_title : function(){ 
+					return title; 
+				},
+				set_title : function(_title){ 
+					title = _title; 
+				}
+			}
+		}
+		var ghost = factory_movie("Ghost");
+		var matrix = factory_movie("Matrix");
+
+		document.write(ghost.get_title());
+		document.write("<br/>");
+		document.write(matrix.get_title());
+		document.write("<br/>");
+		ghost.set_title("Ghosting");
+		document.write(ghost.get_title());
+		*/
+
+		/*
+		var arr = [];
+		for(var i = 0; i<5; i++){
+			arr[i] = function(){
+				return i;
+			}
+		}
+		for(var index in arr){
+			document.write(arr[index]());
+		}
+
+		document.write("<br/>");
+		*/
+
+		var arr2 = [];
+		for(var i = 0; i<5; i++){
+			arr2[i] = function(id){
+				return function(){
+					return id;
+				}
+			}(i);
+		}
+
+		for(var index in arr2){
+			document.write(arr2[index]());
+		}
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8"/>
+	</head>
+	<body>
+		<script>
+			//alert("hello java script");
+
+			function numbering(){
+				document.write(10 + "<br />");
+				document.write("hello world")
+			}
+
+			numbering();
+			
+			var member = ["egoing", "k1", "sorijava"]; //배열 생성
+			/*
+			document.write("<br />");
+			document.write(member[0]);
+			*/
+			member.push("push");
+			
+			function get_members(){
+				return member;
+			}
+
+			var members = get_members();
+			for (var i = 0; i < members.length; i++) {
+				document.write("<br />");
+				document.write(members[i]);
+				document.write("<br />");
+				document.write(members[i].toUpperCase());
+				//toUpperCase()는 자바스크립트가 제공하는 함수
+			}
+
+		</script>
+	</body>
+</html>
