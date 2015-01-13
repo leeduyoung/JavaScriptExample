@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = 'utf-8'>
+	<title>prototype 예제</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//Ultra 생성자 
+		function Ultra(){}
+		Ultra.prototype.ultraProp = true;
+
+		function Super(){}
+		Super.prototype = new Ultra();
+
+		function Sub(){}
+		var s = new Super();
+		s.ultraProp = 3;
+		Sub.prototype = s;
+		//Sub.prototype = new Super();
+
+		var o = new Sub();
+		document.write(o.ultraProp);
+	</script>
+</body>
+</html>
