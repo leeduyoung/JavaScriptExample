@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = 'utf-8'>
+	<title>상속 예제</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		//Person이라는 객체의 생성자를 정의
+		function Person(name){
+			this.name = name;
+		}
+
+		Person.prototype.name = null;
+		Person.prototype.introduce = function(){
+			return 'My name is ' + this.name;
+		}
+
+		//Programmer 객체의 생성자를 정의
+		function Programmer(name){
+			this.name = name;
+		}
+
+		//Person객체를 Programmer객체에 상속받음
+		Programmer.prototype = new Person();
+		Programmer.prototype.coding = function(){
+			return "coding everybody";
+		}
+
+
+		//Designer 객체의 생성자를 정의
+		function Designer(name){
+			this.name = name;
+		}
+		
+		//Person객체를 Designer객체에 상속받음
+		//Designer.prototype = new Person();
+
+		//Programmer객체를 Designer객체에 상속받음
+		Designer.prototype = new Programmer();
+		Designer.prototype.design = function(){
+			return "design everybody";
+		}
+
+		var p = new Person('leechez');
+		var p1 = new Programmer('leeduyoung');
+		var p2 = new Designer('egoing');
+
+		document.write(p.introduce() + "<br/>");
+		document.write(p1.introduce() + "<br/>");
+		document.write(p1.coding() + "<br/>");
+		document.write(p2.introduce() + "<br/>");
+		document.write(p2.design() + "<br/>");
+		document.write(p2.coding() + "<br/>");
+
+
+
+	</script>
+</body>
+</html>
