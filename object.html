@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = 'utf-8'>
+	<title>Object 예제</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		
+		//Object 객체를 확장하여 모든 객체가 접근할 수 있는 API를 만든 상태
+		Object.prototype.contain = function(neddle){
+			
+			for(var name in this){
+				if(this[name] === neddle){
+					return true;
+				}
+			}
+			return false;
+		}
+
+		var o = { 'name' : 'egoing', 'city' : 'seoul'};
+		document.write(o.contain('egoing') + "<br/>");
+
+		var a = ['egoing','leezche','grapittie'];
+		document.write(a.contain('leezche') + "<br/>");
+		
+		//모든 객체가 접근할 수 있으므로 위험하다.
+		for(var name in o){
+			document.write(name + "<br/>");
+		}
+
+		for(var name in o){
+			if(o.hasOwnProperty(name))
+				document.write(name + "<br/>");
+			//hasOwnProperty는 인자로 전달된 속성의 이름이 객체의 속성인지
+			//여부를 판단한다. 만약 prototype으로 상속받은 객체라면 false
+		}
+	</script>
+</body>
+</html>
