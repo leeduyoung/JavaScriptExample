@@ -1,0 +1,42 @@
+<!DOCTYPE hmtl>
+<html>
+<head>
+	<meta charset = 'utf-8'>
+	<title>참조 예제</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//원시 데이터는 복제가 일어난다.
+		var a = 1;
+		var b = a;
+		b = 2;
+		document.write(a + "<br/>");
+
+		//객체 데이터는 참조가 일어난다.
+		var c = {'id' : 1};
+		var d = c;
+		d.id = 2;
+		document.write(d.id + "<br/>");
+		document.write(c.id + "<br/>");
+
+		//함수에서도 마찬가지.
+		var e = 3;
+		function func(f){
+			f = 4;
+		}
+		func(e);
+		document.write(e + "<br/>");
+
+		var g = {'id' : 5};
+		function func(h){
+			h.id = 6;
+			//h = {'id' : 6}; //새로운 객체를 생성하면 g.id는 수정안됨.
+		}
+		func(g);
+		document.write(g.id);
+
+		
+	</script>
+</body>
+</html>
