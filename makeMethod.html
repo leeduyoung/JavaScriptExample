@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>메서드 생성</title>
+</head>
+<body>
+	<script type="text/javascript">
+	/*
+		function Student(name, korean, math, english, science){
+			//속성
+			this.name = name;
+			this.korean = korean;
+			this.math = math;
+			this.english = english;
+			this.science = science;
+
+			//메서드
+			this.getSum = function(){
+				return this.korean + this.math + this.english + this.science;
+			};
+
+			this.getAverage = function(){
+				return this.getSum()/4;
+			};
+
+			this.toString = function(){
+				return this.name + "\t" + "<br/>" + "총점 : " + this.getSum() + ", " + "\t" + "평균 : " +this.getAverage() + "<br/>";
+			};
+		}
+
+		// var student = new Student('이두영', 90, 95, 100, 97);
+		// document.write("이두영 학생의 총점 : " + student.getSum() + "<br/>");
+		// document.write("이두영 학생의 평균 : " + student.getAverage() + "<br/>");
+		// document.write(student.toString());
+
+		var students = [];
+		students.push(new Student('이두영', 96, 97, 98, 100));
+		students.push(new Student('김씨', 91, 93, 99, 100));
+		students.push(new Student('최씨', 96, 87, 88, 100));
+
+		var output = '이름\t총점\t평균<br/>';
+		for(var i in students){
+			output += students[i].toString() + "\n";
+		}
+		document.write(output);
+	*/
+	
+		//위의 예제는 속성은 모두 다르지만 메서드는 매번 동일한데 동일한 함수를 계속 생성해서 비효율 적이다.
+		//따라서 메서드는 모두 prototype으로 넣어줍니다.
+		function Student(name, korean, math, english, science){
+			this.name = name;
+			this.korean = korean;
+			this.math = math;
+			this.english = english;
+			this.science = science;
+		}
+		Student.prototype.getSum = function(){
+			return this.korean + this.math + this.english + this.science;
+		}
+		Student.prototype.getAverage = function(){
+			return this.getSum()/4;
+		}
+		Student.prototype.toString = function(){
+			return this.name + "\t" + "<br/>" + "총점 : " + this.getSum() + ", " + "\t" + "평균 : " +this.getAverage() + "<br/>"; 
+		}
+
+		var students = [];
+		students.push(new Student('이두영', 96, 97, 98, 100));
+		students.push(new Student('김씨', 91, 93, 99, 100));
+		students.push(new Student('최씨', 96, 87, 88, 100));
+
+		var output = '이름\t총점\t평균<br/>';
+		for(var i in students){
+			output += students[i].toString() + "\n";
+		}
+		document.write(output);
+
+	</script>
+</body>
+</html>
