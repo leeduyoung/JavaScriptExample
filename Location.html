@@ -1,0 +1,26 @@
+<!DOCTYPE htlm>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Location객체 예제 </title>
+</head>
+<body>
+	<script type="text/javascript">
+		//location객체를 통해 윈도우의 문서 url정보를 얻을 수 있고 수정가능
+		document.write(location + "<br/>");
+		//alert(location);
+		document.write(location.href + "<br/>");
+		document.write(location.toString()+ "<br/>");
+		//url 프로토콜을 알 수 있다.
+		document.write(location.protocol + "<br/>");
+		//url의 호스트를 알 수 있다.(컴퓨터를 식별)
+		document.write(location.host + "<br/>");
+		//포트를 알 수 있다.(소프트웨어를 식별)
+		document.write(location.port + "<br/>");
+		//자세한 경로를 알 수 있다.
+		document.write(location.pathname + "<br/>");
+		//location.href = "http://naver.com"
+		//location.reload();
+	</script>
+</body>
+</html>
