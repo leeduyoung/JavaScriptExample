@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>DOM 웹페이지를 자바스크립트로 제어하기 위한 객체 모델</title>
+</head>
+<body>
+	<ul>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JavaScript</li>
+	</ul>
+
+	<ol>
+		<li>C</li>
+		<li>C++</li>
+		<li>DataBase</li>
+	</ol>
+
+	<ul>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JavaScript</li>
+	</ul>
+
+	<script type="text/javascript">
+		var ul = document.getElementsByTagName('ul')[1];
+		var lis = ul.getElementsByTagName('li');
+		for(var i=0; i<lis.length; i++){
+			lis[i].style.color='red';
+		}
+	</script>
+</body>
+</html>
