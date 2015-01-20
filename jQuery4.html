@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>jQuery 속성제어 API, 조회 범위 제한</title>
+</head>
+<body>
+
+	<ul>
+		<li class='marked'>html</li>
+		<li>css</li>
+		<li id='active'>JavaScript
+			<ul>
+				<li>Core</li>
+				<li class='marked'>DOM</li>
+				<li class='marked'>BOM</li>
+			</ul>
+		</li>	
+	</ul>	
+
+	<a id="target" href="http://google.co.kr">GOOGLE</a> <br/>
+	<a class="t1" href="./closer.html">CLOSER</a><br/>
+	<input id="t2" type="checkbox" checked="checked"/>
+
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript">
+		var t = $('#target');
+		document.write("<br/>");
+		document.write(t.attr('href') + "<br/>"); //getAttribute와 동일
+		t.attr('title', 'title google'); 		  //setAttribute와 동일 
+		document.write(t.attr('title') + "<br/>"); 
+		t.removeAttr('title');					   //removeAttribute와 동일
+		document.write(t.attr('title') + "<br/>"); 
+
+		var t1 = $('.t1'); //속성과 프로퍼티는 값이 다를 수 있다.
+		document.write(t1.attr('href') + "<br/>"); //속성방식은 그대로 가져옴
+		document.write(t1.prop('href') + "<br/>"); //프로퍼티방식은 url 전체가져
+
+		var t2 = $('#t2');
+		document.write(t2.attr('checked') + "<br/>"); //코드 그대로
+		document.write(t2.prop('checked') + "<br/>"); //true 
+
+		//t2.attr('class', 'c1');  //attr은 clas만 사용 가능
+		t2.prop('class', 'c1');    //prop는 class, className 둘다 사용가능
+		t2.prop('className', 'c1');
+		document.write(t2.attr('class'));
+
+		//li태그 id=active에서 하위태그에서 클래스이름이 marked인 엘리먼트만 변경하고 싶다.
+		//$('.marked', '#active').css('background-color', 'green'); //O
+		//$('#active', '.marked').css('background-color', 'green'); //X
+		//$('#active .marked').css('background-color', 'green');      //O
+		//$('#active').find('.marked').css('background-color', 'green'); //O
+		$('#active').css('color', 'blue').find('.marked').css('background-color', 'red');
+	</script>
+</body>
+</html>

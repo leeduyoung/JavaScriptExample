@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>노드 객체 API</title>
+</head>
+<body id='start'>
+	<ul>
+		<li><a href="./532">html</a></li>
+		<li><a href="./533">css</a></li>
+		<li><a href="./534">javascript</a>
+			<ul id='target'>
+				<li><a href="./535">core</a></li>
+				<li><a href="./536">dom</a></li>
+				<li><a href="./537">bom</a></li>
+				<li id='t1'>JavaScript</li>	
+			</ul>
+		</li>
+	</ul>
+
+	<input type='button' onclick='callAppendChild();' value='appendChild()'/>
+	<input type='button' onclick='callInsertBefore();' value='insertBefore()'/>
+	<input type='button' onclick='callRemoveChild();' value='removeChild()'/>
+	<input type='button' onclick='callReplaceChild();' value='replaceChild()'/>
+	<br/>
+	<script type="text/javascript">
+		var s = document.getElementById('start');
+		//body의 첫번째 자식은 공백이 선택된다
+		document.write(1, s.firstChild + "<br/>"); //#text 
+		var ul = s.firstChild.nextSibling
+		//body의 자식의 다음 형제는 ul이 선택된다.
+		//nextSibling은 같은 레벨의 엘리먼트 가져온다.
+		document.write(2, ul + "<br/>"); //ul
+		document.write(3, ul.nextSibling + "<br/>"); //#text
+		document.write(4, ul.nextSibling.nextSibling + "<br/>"); //script
+		document.write(5, ul.nextSibling.nextSibling.nextSibling + "<br/>"); //#text
+		document.write(6, ul.childNodes + "<br/>"); //ul 밑에 하위 엘리먼트들 선택
+		document.write("ul.childNodes[0] : ", ul.childNodes[0] + "<br/>");
+		document.write("ul.childNodes[1] : ", ul.childNodes[1] + "<br/>");
+		document.write("ul.childNodes[2] : ", ul.childNodes[2] + "<br/>");
+		document.write(7, ul.parentNode); //body
+
+		//노드 변경
+		//appendChild눈 마지막에 추가
+		//createElement는 객체 생성, createTextNode는 데이터 입력
+		function callAppendChild(){
+			var target = document.getElementById('target');
+			var li = document.createElement('li'); //<li>--</li>
+			var text = document.createTextNode('Add JavaScript'); 
+			li.appendChild(text); //<li>Add JavaScript</li>
+			target.appendChild(li); 
+		}
+
+		//insertBefore의 두번째 인자 이전에 첫번째 인자 값을 추가
+		function callInsertBefore(){
+			var target = document.getElementById('target');
+			var li = document.createElement('li');
+			var text = document.createTextNode('jQuery');
+			li.appendChild(text);
+			target.insertBefore(li, target.firstChild);
+		}
+
+		//노드 제거 - 하위 태그 모두 삭제
+		function callRemoveChild(){
+			var target = document.getElementById('target');
+			target.parentNode.removeChild(target); //삭제하는데 불편함이 있다.	
+		}
+
+		//노드 바꾸기
+		function callReplaceChild(){
+			var a = document.createElement('a');
+			a.setAttribute('href', 'http://naver.com');
+			a.appendChild(document.createTextNode('web browser Naver'));
+			var t1 = document.getElementById('t1');
+			t1.replaceChild(a, t1.firstChild);
+			//기존의 JavaScript라는 텍스트가 a엘리먼트로 교체된다.
+		}
+
+	</script>
+</body>
+</html>

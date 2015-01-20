@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>jQuery 예제5 노드변경 API </title>
+</head>
+<body>
+	<div class="target" id='target1'>content1</div>
+	<div class="target" id='target2'>content2</div>
+	<div id="source">source</div>
+
+	<input type="button" value="remove target 1" id="btn1" />
+	<input type="button" value="empty target 2" id="btn2" />
+	<input type="button" value="colon replaceAll target 1" id="btn3" />
+	<input type="button" value="append target 2" id="btn4" />
+
+	<script type="text/javascript" src="./jquery.js"></script>
+	<script>
+
+		$('.target').before('<div>before</div>');
+		$('.target').after('<div>after</div>');
+		$('.target').prepend('<div>prepend</div>');
+		$('.target').append('<div>append</div>');
+
+		//제거
+		//remove : 선택된 엘리먼트를 제거, empty : 선택된 엘리먼트의 텍스트 노드를 제거
+		$('#btn1').click(function(){
+        	$('#target1').remove();
+		})
+   		$('#btn2').click(function(){
+      	 	$('#target2').empty();
+ 	 	})
+
+ 	 	//엘리먼트 바꾸기 replaceAll, replaceWith
+ 	 	//$('<div>replaceAll</div>').replaceAll('#target1'); //content1 > replaceAll
+ 	 	$('#target2').replaceWith('<div>replaceWith</div>'); //content2 > replaceWith
+
+ 	 	//노드 복사
+   		$('#btn3').click(function(){
+	  	 	$('#source').clone().replaceAll('#target1'); //target1의 내용이 없어지고 source의 내용이 복제된다.
+ 	 	})
+
+ 	 	//이동
+ 	 	$('#btn4').click(function(){
+ 	 		$('#target1').append($('#source'));		
+ 	 	})
+ 	 	
+
+	</script>
+</body>
+</html>
