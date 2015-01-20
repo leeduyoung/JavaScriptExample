@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Element 객체 예제</title>
+</head>
+<body>
+
+	<ul>
+		<li>
+			<a id='target' href="http://naver.com">네이버</a>
+		</li>
+		<li class='marked'>HTML</li>
+		<li>CSS</li>
+		<li id='active' class='Elements'>JavaScript
+			<ul>
+				<li>JavaScript Core</li>
+				<li class="marked">DOM</li>
+				<li class="marked">BOM</li>
+			</ul>
+		</li>
+	</ul>
+
+
+	<script type="text/javascript">
+
+		//식별자 API 예제 
+		//1. id 읽고 변경
+		var active = document.getElementById('active');
+		document.write(active + "<br/>");
+		document.write(active.id + "<br/>");
+		active.id = 'deactive';
+		document.write(active.id + "<br/>");
+
+		//2. className 읽고 변경
+		document.write(active.className + "<br/>");
+		active.className = "Elements current fix";
+		document.write(active.className + "<br/>");
+
+		//3. classList 읽고 추가 삭제
+		for (var i = 0; i<active.classList.length; i++){
+			document.write(i, active.classList[i] + "<br/>");	
+		}	
+
+		active.classList.add('market');
+		document.write(active.classList + "<br/>");
+		active.classList.remove('fix');
+		document.write(active.classList + "<br/>");
+		active.classList.toggle('fix');
+		document.write(active.classList + "<br/>");
+
+		//조회 API
+		//document.getElementsByClassName()는 문서 전체의 className조회
+		document.write('<br/>');
+		document.write('document.getElementsByClassName()는 문서 전체의 className조회');
+		document.write('<br/>');
+		var list = document.getElementsByClassName('marked');
+		for(var i=0; i<list.length; i++){
+			//document.write(list[i] + "<br/>");
+			//textContent 프로퍼티는 엘리먼트의 컨텐츠를 가져온다. 
+			document.write(list[i].textContent + "<br/>");
+		}
+
+		document.write('<br/>');
+		document.write('Element.getElementsByClassName()는 Element객체의 하위 Element를 대상으로 조회 ');
+		document.write('<br/>');	
+		//Element.getElementsByClassName()는 Element객체의 하위 Element를 대상으로 조회 
+		var list = active.getElementsByClassName('marked');
+		for(var i=0; i<list.length; i++){
+			document.write(list[i].textContent + "<br/>");
+		}
+
+		//속성API 
+		var t = document.getElementById('target');
+		document.write(t.getAttribute('href') + "<br/>"); //href속성값 가져오기
+		t.setAttribute('href', 'http://google.co.kr');    //href속성값 변경하기 
+		document.write(t.getAttribute('href') + "<br/>"); //href속성값 가져오기
+		document.write(t.getAttribute('id') + "<br/>");   //id 속성값 가져오기    
+		t.setAttribute('title', 'Element test');          //title 속성 추가
+		document.write(t.getAttribute('title') + "<br/>");//title 속성 확인
+		t.removeAttribute('title'); //title 속성 제거
+		document.write(t.getAttribute('title') + "<br/>");//title 속성 확인
+		document.write(t.hasAttribute('title') + "<br/>");//title 속성 있는지 없는지 확인
+		t.setAttribute('title', 'Element test'); //다시 title 속성 추가
+		document.write(t.hasAttribute('title') + "<br/>");
+
+
+	</script>
+</body>
+</html>
