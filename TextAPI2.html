@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>조작 API - text노드 값을 조작</title>
+	<style type="text/css">
+		#target{
+			font-size: 77px;
+			font-family: georgia;
+			border-bottom: px solid black;
+			padding-bottom:10px;
+		}
+		p{
+			margin:5px;
+		}
+	</style>
+</head>
+<body>
+	<p id="target">Cording everybody!</p>
+	<p>data:<input type='text' id='datasource' value='JavaScript'/></p>
+	<p>start:<input type='text' id='start' value='3'/></p>
+	<p>end:<input type='text' id='end' value='3'/></p>
+	<p>
+		<input type='button' value='appenData(data)' onclick='callAppendData();'/>
+		<input type='button' value='deleteData(start,end)' onclick='callDeleteData();'/>
+		<input type='button' value='insertData(start,data)' onclick='callInsertData();'/>
+		<input type='button' value='replaceData(start,end,data)' onclick='callReplaceData();'/>
+		<input type='button' value='substringData(start,end)' onclick='callSubstringData();'/>
+	</p>
+
+	<script type="text/javascript">
+		var target = document.getElementById('target').firstChild;
+		var data = document.getElementById('datasource');
+		var start = document.getElementById('start');
+		var end = document.getElementById('end');
+
+		function callAppendData(){
+			target.appendData(data.value);
+			//문자열 붙여 넣기
+		}
+
+		function callDeleteData(){
+			target.deleteData(start.value, end.value);
+			//start위치 다음 문자열부터 end값 만큼 문자열을 제거한다.
+		}
+
+		function callInsertData(){
+			target.insertData(start.value, data.value);
+			//start위치 다음 문자열부터 data 문자열이 삽입된다.
+		}
+
+		function callReplaceData(){
+			target.replaceData(start.value, end.value, data.value);
+			//start위치 다음 문자열부터 end값 만큼의 문자열 대신 data문자열을 대체한다.
+		}
+
+		function callSubstringData(){
+			alert(target.substringData(start.value, end.value));
+			//start위치 다음 문자열부터 end값 만큼의 문자열을 뽑아서 리턴
+		}
+
+		</script>
+</body>
+</html>

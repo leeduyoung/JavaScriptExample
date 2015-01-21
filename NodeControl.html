@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>문자열로 노드 제어 예제</title>
+</head>
+<body>
+	<ul id='target'>
+		<li>HTML</li>
+		<li>CSS</li>
+	</ul>
+
+	<input type='button' onclick='get();' value='get'/>
+	<input type='button' onclick='set();' value='set'/>
+
+	<input type='button' onclick='get_outer();' value='get_outer'/>
+	<input type='button' onclick='set_outer();' value='set_outer'/>
+
+	<script>
+		function get(){
+			var target = document.getElementById('target');
+			//alert(target.innerHTML);
+			//target이 가르키는 엘리먼트의 하위 태그가 출력된다.
+			alert(target.innerText);
+			//target이 가르키는 엘리먼트의 하위 태그의 컨텐츠만 출력(문자열만 리턴)
+		}
+
+		function set(){
+			var target = document.getElementById('target');
+			//target.innerHTML = "<li>JavaScript Core</li><li>Bom</li>";
+			target.innerText = "<li>JavaScript Core</li><li>Bom</li>";
+			//innerText는 값을 변경할때는 html코드를 그대로 추가한다.
+		}
+
+		function get_outer(){
+			var target = document.getElementById('target');
+			alert(target.outerHTML);
+		}
+
+		function set_outer(){
+			var target = document.getElementById('target');
+			target.outerHTML = "<li>JavaScript Core</li><li>Bom</li>"
+		}
+
+
+	</script>
+</body>
+</html>

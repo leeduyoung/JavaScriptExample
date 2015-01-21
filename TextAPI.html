@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Text 객체 예제</title>
+</head>
+<body>
+	<p id='t1'><span>Hello World</span></p>
+	<p id='t2'>
+		<span>
+			Hello World
+		</span>
+	</p>
+	<script type="text/javascript">
+		var t1 = document.getElementById('t1');
+		document.write(t1.firstChild + "<br/>"); //span태그를 가르킨다.
+		document.write(t1.firstChild.firstChild.nodeValue + "<br/>"); //hello world
+
+		var t2 = document.getElementById('t2');
+		document.write(t2.firstChild + "<br/>"); //#text가르킨다.
+		document.write(t2.firstChild.firstChild + "<br/>"); //없다
+		document.write(t2.firstChild.nextSibling + "<br/>"); //sapn가르킨다.
+		document.write(t2.firstChild.nextSibling.firstChild.nodeValue + "<br/>");// hello world 가르킨다.
+		//nodeValue = data 동일한 기능을 한다.
+		document.write(t2.firstChild.nextSibling.firstChild.data + "<br/>");
+	</script>
+
+</body>
+</html>
