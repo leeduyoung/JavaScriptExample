@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>이벤트 기본동작 취소 예제</title>
+</head>
+<body>
+	<!--인라인 방식 예제-->
+
+<!--
+	<p>
+	<label>prevent event</label>
+
+	<input type="checkbox" id="prevent" value='on'/>
+	</p>
+	
+	<p>
+		<a href='http://naver.com' onclick="if(document.getElementById('prevent').checked) return false;">네이버</a>	
+	</p>
+
+	<p>
+		<form action="http://opentutorials.org" onsubmit="if(document.getElementById('prevent').checked) return false;">
+            <input type="submit" />
+    	</form>
+	</p>
+	<br/>
+	<br/>
+-->
+	<!--프로퍼티 방식-->
+<!--
+	<p>
+    <label>prevent event on</label><input id="prevent2" type="checkbox" name="eventprevent" value="on" />
+	</p>
+	
+	<p>
+    <a href="http://google.co.kr">google</a>
+	</p>
+	
+	<p>
+    <form action="http://google.co.kr">
+            <input type="submit" />
+    </form>
+	</p>
+-->
+	<p>
+        <label>prevent event on</label><input id="prevent" type="checkbox" name="eventprevent" value="on" />
+    </p>
+    <p>
+        <a id='a1' href="http://opentutorials.org">opentutorials</a>
+    </p>
+    <p>
+        <form action="http://opentutorials.org">
+            <input type="submit" />
+        </form>
+    </p>
+
+	<script type="text/javascript">
+
+	//꼭 querySelector로 받아와야 하는가?
+		document.querySelector('a').onclick = function(event){
+        if(document.getElementById('prevent').checked)
+            return false;
+    	};
+
+	 	document.querySelector('form').onclick = function(event){
+        if(document.getElementById('prevent').checked)
+            return false;
+    	};
+
+
+	// document.querySelector('a').addEventListener('click', function(event){
+	// 	if(document.getElementById('prevent').checked)
+	// 		event.preventDefault();
+ //        });
+
+             
+    // document.querySelector('form').addEventListener('submit', function(event){
+    //     if(document.getElementById('prevent').checked)
+    //         event.preventDefault();
+    //     });
+
+	</script>
+</body>
+</html>

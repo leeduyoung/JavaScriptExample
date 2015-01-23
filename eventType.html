@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>이벤트 타입</title>
+</head>
+<body>
+	<form id='t1' action='test.html'>
+		<label for='name'>name</label>
+		<input type='name' id='name'/>
+		<input type='submit'/>
+	</form>
+	<script type="text/javascript">
+	//유효성 검사 - 서버의 부담을 줄인다.
+		var t = document.getElementById('t1');
+		t.addEventListener('submit', function(event){
+			if(document.getElementById('name').value.length === 0){
+				alert('Name 필드의 값이 누락 되었습니다.');
+				event.preventDefault();
+			}
+		});
+	</script>
+</body>
+</html>
