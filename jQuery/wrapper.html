@@ -1,0 +1,49 @@
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>레퍼의 안전한 사용</title>
+</head>
+<body>
+	<!--
+	$엘리먼트와 jQuery엘리먼트는 같은 의미이지만 $를 사용하는 다른 라이브러리들과의
+	충돌 때문에 다음과 같은 방법을 사용한다.
+
+	<script type="text/javascript">
+	//$대신 jQuery사용
+	jQuery('body').html('hello world');
+	</script>
+
+	<script type="text/javascript">
+	//$를 함수의 지역변수로 선언해서 외부에 있을지 모르는 타 라이브러리의 $와 충돌을 예방
+	(function($){
+		$('body').html('hello world');
+	})(jQuery)
+	</script>
+	-->
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+<!--# 예제1
+	<ul class='foo'>
+		<li>test</li>
+	</ul>
+	<ul class='foo'>
+		<li>test2</li>
+	</ul>
+
+	<script type="text/javascript">
+		(function($){
+			$('ul.foo').click(function(){
+				$('li', this).css('background-color', 'green');
+			});
+		})(jQuery)
+	</script>
+-->
+	<!--# 예제2-->
+	<script type="text/javascript">
+		jQuery(document.body).css('background-color', 'green');
+	</script>
+
+
+</body>
+</html>

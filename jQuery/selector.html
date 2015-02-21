@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title>자식 선택자와 후손 선택자</title>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>Apple</li>
+			<li>Bag</li>
+			<li>Cat</li>
+			<li>Dog</li>
+			<li class='ele'>Elephant</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js">
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// 후손선택자는 요소를 한정한다. 자식 선택자는 자식 모두를 포함.
+
+			// $('body > *').css('color', 'red'); //자식 선택자
+			// $('body *').css('color', 'red'); //후손 선택자
+			$('body .ele').css('color', 'blue');
+		});
+	</script>
+</body>
+</html>
